@@ -1,0 +1,310 @@
+{
+    "version": "1",
+    "date": "220517",
+    "description": "VQ Annotations (test) (test unannotated)",
+    "manifest": "s3://ego4d-consortium-sharing/public/v1/full_scale/manifest.csv",
+    "videos": [
+        {
+            "video_uid": "b454135c-b78b-47d1-875c-1f564ef6bd45",
+            "split": "test",
+            "clips": [
+              {
+                "clip_uid": "47962bf9-b324-4954-a415-a316df4d35c8",
+                "video_start_sec": -0.012304733333333331,
+                "video_end_sec": 299.98769526666666,
+                "video_start_frame": 0,
+                "video_end_frame": 9000,
+                "clip_start_sec": 0,
+                "clip_end_sec": 299.96666666666664,
+                "clip_start_frame": 0,
+                "clip_end_frame": 8999,
+                "clip_fps": 5.0,
+                "annotation_complete": true,
+                "source_clip_uid": "5b9a9caa-ab14-4d58-aed8-438cab090112",
+                "annotations": [
+                  {
+                    "query_sets": {
+                      "2": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 333,
+                        "query_video_frame": 1998,
+                        "visual_crop": {
+                          "frame_number": 603,
+                          "x": 526.49,
+                          "y": 780.52,
+                          "width": 220.18,
+                          "height": 270.62,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 3618
+                        }
+                      },
+                      "1": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 405,
+                        "query_video_frame": 2430,
+                        "visual_crop": {
+                          "frame_number": 184,
+                          "x": 1018.08,
+                          "y": 587.08,
+                          "width": 219.01,
+                          "height": 336.67,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 1104
+                        }
+                      },
+                      "3": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 998,
+                        "query_video_frame": 5988,
+                        "visual_crop": {
+                          "frame_number": 381,
+                          "x": 653.87,
+                          "y": 374.36,
+                          "width": 295.51,
+                          "height": 223.47,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 2286
+                        }
+                      }
+                    },
+                    "warnings": [],
+                    "annotation_uid": "c80eb259-b725-4e44-8ca1-c380545f4e9d"
+                  },
+                  {
+                    "query_sets": {
+                      "1": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 406,
+                        "query_video_frame": 2436,
+                        "visual_crop": {
+                          "frame_number": 185,
+                          "x": 1011.86,
+                          "y": 614.51,
+                          "width": 235.19,
+                          "height": 333.4,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 1110
+                        }
+                      },
+                      "3": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 310,
+                        "query_video_frame": 1860,
+                        "visual_crop": {
+                          "frame_number": 204,
+                          "x": 596.13,
+                          "y": 131.94,
+                          "width": 582.41,
+                          "height": 301.46,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 1224
+                        }
+                      },
+                      "2": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 586,
+                        "query_video_frame": 3516,
+                        "visual_crop": {
+                          "frame_number": 608,
+                          "x": 425.07,
+                          "y": 779.41,
+                          "width": 231.48,
+                          "height": 278.9,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 3648
+                        }
+                      }
+                    },
+                    "warnings": [],
+                    "annotation_uid": "d8bb9d10-c810-4b8c-b48f-1207551d665b"
+                  }
+                ]
+              },
+              {
+                "clip_uid": "bcc38f84-cf78-4aad-983d-3db07b4b32d1",
+                "video_start_sec": 269.98769526666666,
+                "video_end_sec": 558.9876952666667,
+                "video_start_frame": 8100,
+                "video_end_frame": 16770,
+                "clip_start_sec": 0,
+                "clip_end_sec": 289.00000000000006,
+                "clip_start_frame": 0,
+                "clip_end_frame": 8670,
+                "clip_fps": 5.0,
+                "annotation_complete": true,
+                "source_clip_uid": "5f29fb28-a810-481c-ac85-e47f3bcf2d97",
+                "annotations": [
+                  {
+                    "query_sets": {
+                      "1": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 60,
+                        "query_video_frame": 8460,
+                        "visual_crop": {
+                          "frame_number": 460,
+                          "x": 622.88,
+                          "y": 466.19,
+                          "width": 147.63,
+                          "height": 318.56,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 10860
+                        }
+                      },
+                      "2": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 152,
+                        "query_video_frame": 9012,
+                        "visual_crop": {
+                          "frame_number": 259,
+                          "x": 122.33,
+                          "y": 448.15,
+                          "width": 388.54,
+                          "height": 448.12,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 9654
+                        }
+                      },
+                      "3": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 463,
+                        "query_video_frame": 10878,
+                        "visual_crop": {
+                          "frame_number": 510,
+                          "x": 723.88,
+                          "y": 383.31,
+                          "width": 72.52,
+                          "height": 163.17,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 11160
+                        }
+                      }
+                    },
+                    "warnings": [],
+                    "annotation_uid": "b9737f4e-f564-48bb-b045-0f0046edc0c9"
+                  },
+                  {
+                    "query_sets": {
+                      "1": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 249,
+                        "query_video_frame": 9594,
+                        "visual_crop": {
+                          "frame_number": 18,
+                          "x": 641.01,
+                          "y": 484.32,
+                          "width": 160.58,
+                          "height": 360.0,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 8208
+                        }
+                      },
+                      "3": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 1103,
+                        "query_video_frame": 14718,
+                        "visual_crop": {
+                          "frame_number": 270,
+                          "x": 16.83,
+                          "y": 310.79,
+                          "width": 497.15,
+                          "height": 507.63,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 9720
+                        }
+                      },
+                      "2": {
+                        "is_valid": true,
+                        "errors": [],
+                        "warnings": [
+                          "Extra query set annotation"
+                        ],
+                        "query_frame": 1106,
+                        "query_video_frame": 14736,
+                        "visual_crop": {
+                          "frame_number": 318,
+                          "x": 94.53,
+                          "y": 445.47,
+                          "width": 256.4,
+                          "height": 202.01,
+                          "rotation": 0,
+                          "original_width": 1440,
+                          "original_height": 1080,
+                          "video_frame_number": 10008
+                        }
+                      }
+                    },
+                    "warnings": [],
+                    "annotation_uid": "9d199896-1ea4-4060-8c7a-4a1e3fcb057e"
+                  }
+                ]
+              }
+            ]
+          }
+    ]
+}
