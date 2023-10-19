@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /root/workplace/episodic-memory/VQ2D/enable_em_vq2d.sh
+source <PATH-TO-VQIMG>/enable_em_vqimg-arm64.sh
 
 export MODEL_ROOT="$VQIMG_ROOT/experiments/experiment1/logs"
 export DETECTIONS_SAVE_ROOT="$VQIMG_ROOT"
