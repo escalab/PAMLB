@@ -155,7 +155,7 @@ To install PyTorch locally on Jetson platform, please follow instructions on [NV
 	export CUDACXX=$CUDA_DIR/bin/nvcc
 	
 	# Add directory paths for VQImg
-	export VQIMG_ROOT="<PATH-TO-PAMLB>/VQImg"
+	export VQIMG_ROOT="<PATH-TO-VQIMG>"
 	export CLIPS_ROOT=$VQIMG_ROOT/data/test_clips
 	export VQ2D_SPLITS_ROOT=$VQIMG_ROOT/data
 	export EXPT_ROOT=$VQIMG_ROOT/experiments/experiment1

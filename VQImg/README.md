@@ -34,11 +34,15 @@
 5. Install [detectron2](https://github.com/facebookresearch/detectron2/blob/main/INSTALL.md)
 
 	```
-	python -m pip install detectron2 -f \
-https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.8/index.html
+	python -m pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.8/index.html
 	```
 6. Install pytracking according to [these instructions](https://github.com/visionml/pytracking/blob/master/INSTALL.md). Download the pre-trained [KYS tracker weights](https://drive.google.com/drive/folders/1WGNcats9lpQpGjAmq0s0UwO6n22fxvKi) to `$VQIMG_ROOT/pretrained_models/kys.pth`.
 	
+	```
+	mkdir -p $VQIMG_ROOT/pretrained_models
+	# put kys.pth into pretrained_models
+	```
+
 	6.1 Install necessary dependencies for PyTracking. [Original source](https://github.com/visionml/pytracking/blob/master/INSTALL.md)
 	
 	```
@@ -115,7 +119,7 @@ https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.8/index.html
 	export CUDACXX=$CUDA_HOME/bin/nvcc
 	
 	# Add directory paths for VQImg
-	export VQIMG_ROOT=<PATH-TO-VQIMG>/VQImg
+	export VQIMG_ROOT=<PATH-TO-PAMLB>/VQImg
 	export CLIPS_ROOT=$VQIMG_ROOT/data/test_clips
 	export VQ2D_SPLITS_ROOT=$VQIMG_ROOT/data
 	export EXPT_ROOT=$VQIMG_ROOT/experiments/experiment1
