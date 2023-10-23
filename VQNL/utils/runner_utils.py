@@ -137,31 +137,17 @@ def eval_test(
     epoch=None,
     global_step=None,
 ):
-    # batch_time = AverageMeter('Batch_time', ':12.3f', Summary.NONE)
-    # data_time = AverageMeter('Data_time', ':12.3f')
-    # progress = ProgressMeter(
-    #     len(data_loader),
-    #     # [batch_time, data_time],
-    #     # [batch_time],
-    #     [data_time],
-    #     prefix='Test: ')
     
     predictions = []
 
-    model.eval() # Otto
-    # end = time.time()
+    model.eval()
+
     with torch.no_grad():
-        
-        # for idx, (records, vfeats, vfeat_lens, word_ids, char_ids) in enumerate(data_loader): # Otto
         for idx, (records, vfeats, vfeat_lens, word_ids, char_ids) in tqdm(
             enumerate(data_loader),
             total=len(data_loader),
             desc="evaluate {}".format(mode),
         ):
-            # data_time.update(time.time() - end)
-            # print(f"data_time {time.time() - end} sec")
-            
-            # start_time = time.time() # old
             # prepare features
             vfeats, vfeat_lens = vfeats.to(device), vfeat_lens.to(device)
 
@@ -180,9 +166,8 @@ def eval_test(
 
             # generate mask
             video_mask = convert_length_to_mask(vfeat_lens).to(device)
-            # feature_prepare_time = time.time() - start_time # old
 
-            start_time = time.time() # old
+            start_time = time.time()
             # compute predicted results
             _, start_logits, end_logits = model(
                 word_ids, char_ids, vfeats, video_mask, query_mask
@@ -190,17 +175,12 @@ def eval_test(
             start_indices, end_indices = model.extract_index(start_logits, end_logits)
             start_indices = start_indices.cpu().numpy()
             end_indices = end_indices.cpu().numpy()
-            prediction_time = time.time() - start_time # old
-            # batch_time.update(time.time() - end)
-            # end = time.time()
-            # print(f"feature prep time {feature_prepare_time} sec")
+            prediction_time = time.time() - start_time
             print(f"inference time {prediction_time:.6f} sec")
             # Record output and use standard evalution script for NLQ.
-            # post_process_start = time.time()
             for record, starts, ends in zip(records, start_indices, end_indices):
                 # Convert all indices to times.
                 timewindow_predictions = []
-                # per_post_process_start = time.time() # old 
                 for start, end in zip(starts, ends):
                     start_time, end_time = index_to_time(
                         start, end, record["v_len"], record["duration"]
@@ -213,16 +193,6 @@ def eval_test(
                     "predicted_times": copy.deepcopy(timewindow_predictions),
                 }
                 predictions.append(new_datum)
-                # print(f"Per-post process time {time.time() - per_post_process_start} sec") # old
-
-            # post_process_end = time.time() - post_process_start # old
-            # print(f"Per-batch time {batch_time.val} average time {batch_time.avg}")
-            # print(f"Eval time: {eval_et / 60.0:>6.6f} mins")
-            # if idx % 5 == 0:
-
-            # progress.display(idx + 1)
-        # print(f"Sum of batch time {batch_time.sum} sec")
-        # progress.display_summary() is one ☝️ 
 
     # Save predictions if path is provided.
     if result_save_path:

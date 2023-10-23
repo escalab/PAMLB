@@ -122,9 +122,6 @@ def test_collate_fn(data):
     record_size = deepgso(records)
     video_feat_size = sys.getsizeof(vfeats.storage()) + sys.getsizeof(vfeat_lens.storage())
     word_embed_size = deepgso(word_ids) + deepgso(char_ids)
-    # sys.getsizeof(word_ids.storage()) + sys.getsizeof(char_ids.storage())
-    # print(f"records size {record_size} bytes\tvideo features size {video_feat_size} bytes\tword embed size {word_embed_size} bytes")
-    # print(f"total data size {record_size + video_feat_size + word_embed_size} bytes")
     return records, vfeats, vfeat_lens, word_ids, char_ids
 
 
@@ -153,5 +150,4 @@ def get_test_loader(dataset, video_features, configs):
         num_workers=configs.data_loader_workers,
         collate_fn=test_collate_fn,
     )
-    # print(f"test_loader len (after utils.data.DataLoader) {len(test_loader)}")
     return test_loader

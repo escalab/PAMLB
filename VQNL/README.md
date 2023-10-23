@@ -35,9 +35,30 @@
 	
 2. Download the dataset (`nlq_{train, val, test_unannotated}.json`) from the [official webpage](https://ego4d-data.org/) and place them in `data/` folder.
 
-3. Download the video features released from [official website](https://ego4d-data.org/) and place them in `data/features/nlq_official_v1/video_features/` folder. We used `omnivore_video_fp16` video features in our experiments.
+3. Download the video features released from [official website](https://ego4d-data.org/) and place them in `data/features/nlq_official_v1/video_features/` folder. We used `omnivore_video_swinl_fp16` video features in our experiments.
 
-4. Setup `vars.sh` for environment variables.
+	Note: The size of v1.0 `omnivore_video_swinl_fp16` video feature is roughly 11`GB`. For the insufficient space on Jetson platform, you can try to use `Docker volume` and create a soft link to video features.
+
+	```
+	# create Docker volume
+	docker volume create --driver local \ 
+	--opt type=nfs \ 
+	--opt o=addr=[ip-address] \ 
+	--opt device=:[path-to-directory] [volume-name]
+
+	# start the container
+	docker run -it --runtime nvidia \
+	--network=host \
+	--name vqnl \
+	--mount source=[volume-name],target=/mnt/trace \
+	nvcr.io/nvidia/l4t-pytorch:r35.2.1-pth2.0-py3
+
+	ln -s /mnt/trace <PATH-TO-PAMLB>/VQNL/data/features/nlq_official_v1/video_features
+	```
+
+## Training and inference
+
+1. Setup `vars.sh` for environment variables.
 
 	```sh
 	#!/bin/bash
@@ -50,7 +71,7 @@
 	export MODEL_BASE_DIR=$VQNL_ROOT/checkpointsnts
 	```
 
-4. Run the data preprocessing script: 
+2. Run the data preprocessing script: 
 
 	```
 	chmod +x ./prepare_dataset.sh
@@ -60,22 +81,28 @@
 	This generates JSON files in `data/dataset/nlq_official_v1` and processed clip features in `data/features/nlq_official_v1/official` that can be used for training and evaluating the VSLNet baseline model.
 
 
-6. Train a model.
+3. Train a model using `run_train.sh` script.
 	
 	```
+	# edit conda path if necessary
+	# <PATH-TO-CONDA>/bin/activate vqnl
+
 	chmod +x ./run_train.sh
 	./run_train.sh
 	```
 	It generates VSLNet checkpoints under `checkpoints/$NAME/` folder.
 	
-7. Predict on test set.
+4. Predict on test set.
 
 	```
+	# edit conda path if necessary
+	# <PATH-TO-CONDA>/bin/activate vqnl
+
 	chmod +x ./run_test.sh
 	./run_test.sh
 	```
 	
-8. Redirect output and use `vqnl_perf_parser.py` script to parse the performance numbers.
+5. Redirect output and use `vqnl_perf_parser.py` script to parse the performance numbers.
 
 	```
 	./run_test.sh > vqnl_infer_perf.txt

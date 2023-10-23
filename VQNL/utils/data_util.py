@@ -48,7 +48,6 @@ def load_video_features(root, max_position_length):
     extension = "*.pt"
 
     filenames = glob.glob(os.path.join(root, extension))
-    # print(f"debug video feature path: {filenames}")
     for filename in tqdm(filenames, total=len(filenames), desc="load video features"):
         video_id = filename.split("/")[-1].split(".")[0]
         feature = torch.load(filename).to(torch.float32).cpu().numpy()
