@@ -22,7 +22,6 @@ from utils.runner_utils import (
     set_th_config,
 )
 import time
-# from torchinfo import summary
 
 def main(configs, parser):
     print(f"Running with {configs}", flush=True) # print configuration details
@@ -48,18 +47,15 @@ def main(configs, parser):
     train_loader = get_train_loader(
         dataset=dataset["train_set"], video_features=visual_features, configs=configs
     )
-    # print(f"train_loader len: {len(train_loader)}")
     val_loader = (
         None
         if dataset["val_set"] is None
         else get_test_loader(dataset["val_set"], visual_features, configs)
     )
-    # print(f"val_loader len: {len(val_loader)}")
     test_loader = get_test_loader(
         dataset=dataset["test_set"], video_features=visual_features, configs=configs
     )
     print(f"data preparation time {(time.time() - start_time):.6f}s")
-    print(f"test_loader size = len(test_set)/batch_size: {len(test_loader)}") # per batch, 4004 queries/ 32 batch_size
     configs.num_train_steps = len(train_loader) * configs.epochs
     num_train_batches = len(train_loader)
 
@@ -200,7 +196,6 @@ def main(configs, parser):
                         f"{configs.model_name}_{epoch}_{global_step}_preds.json",
                     )
                     # Evaluate on val, keep the top 3 checkpoints.
-                    # Otto: this is evaluation metrcis, not response track
                     results, mIoU, (score_str, score_dict) = eval_test(
                         model=model,
                         data_loader=val_loader,
@@ -236,7 +231,6 @@ def main(configs, parser):
         score_writer.close()
 
     elif configs.mode.lower() == "test":
-        print(f"model_dir {model_dir}")
         if not os.path.exists(model_dir):
             raise ValueError("No pre-trained weights exist")
         start_time = time.time()
@@ -245,14 +239,9 @@ def main(configs, parser):
         parser.set_defaults(**pre_configs)
         configs = parser.parse_args()
         # build model
-        # start_time = time.time()
         model = VSLNet(
             configs=configs, word_vectors=dataset.get("word_vector", None)
         ).to(device)
-        # ) # CPU version: comment out the line above
-        # print(f"model loading time (inc. copy to dev): {time.time() - start_time} sec")
-        # print(f"model summary: {summary(model, input_size = (32, 128, 1664))}")
-        # print(f"model summary: {summary(model)}")
 
         # get last checkpoint file
         filename = get_last_checkpoint(model_dir, suffix="t7")
@@ -260,12 +249,6 @@ def main(configs, parser):
         print(f"model loading time (copy to GPU): {(time.time() - start_time):.6f} sec")
         model.eval()
         result_save_path = filename.replace(".t7", "_test_result.json")
-        # print(f"test_loader {test_loader}")
-        print(f"len(test_loader.dataset) {len(test_loader.dataset)}")
-        # print(f"shape {len(test_loader.dataset.data.shape)}")
-        # print(f"datatype {len(test_loader.dataset.data.dtype)}")
-        # print(f"data {len(test_loader.dataset.data)}")
-        #print(f"data shape {}")
         start_eval = time.time()
         results, mIoU, score_str = eval_test(
             model=model,

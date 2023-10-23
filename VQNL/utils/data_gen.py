@@ -377,7 +377,7 @@ def gen_or_load_dataset(configs):
             "n_test": len(test_set),
         }
         print(f"dataset generated time {(time.time() - start_time):.6f}s")
-        print(f"dataset detail {dataset}")
+        # print(f"dataset detail {dataset}")
     else:
         word_dict, char_dict, vectors = vocab_emb_gen(data_list, emb_path)
         train_set = dataset_gen(

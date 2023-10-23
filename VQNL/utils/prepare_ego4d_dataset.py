@@ -90,17 +90,14 @@ def convert_ego4d_dataset(args):
     all_clip_video_map = {}
     for split in ("train", "val", "test"):
         read_path = args[f"input_{split}_split"]
-        # print(f"Reading [{split}]: {read_path}")
         with open(read_path, "r") as file_id:
             raw_data = json.load(file_id)
         data_split, clip_video_map = reformat_data(raw_data, split == "test")
         all_clip_video_map.update(clip_video_map)
         num_instances = sum(len(ii["sentences"]) for ii in data_split.values())
-        # print(f"# {split}: {num_instances}")
 
         os.makedirs(args["output_save_path"], exist_ok=True)
         save_path = os.path.join(args["output_save_path"], f"{split}.json")
-        # print(f"Writing [{split}]: {save_path}")
         with open(save_path, "w") as file_id:
             json.dump(data_split, file_id)
 
