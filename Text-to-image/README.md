@@ -29,30 +29,30 @@
 1. Download Caltech-UCSD Birds-200-2011 ([CUB-200-2011](https://www.vision.caltech.edu/datasets/cub_200_2011/)) dataset. We used the annotation part of the dataset. Below is the structure of the CUB-200-2011 dataset:
 
 	```md
-cvpr2016_cub
-├── text_c10
-│    ├── 001.Black_footed_Albatross
-│    │     ├── Black_Footed_Albatross_0001_796111.txt
-│    │     ├── ...
-│    │     └── Black_Footed_Albatross_0090_796077.txt
-│    │
-│    ├── 002.Laysan_Albatross
-│    .     ├── Laysan_Albatross_0001_545.txt
-│    .     ├── ...
-│    .     └── Laysan_Albatross_0104_630.txt
-│    
-│    │   
-│    └── 200.Common_Yellowthroat
-│			 ├── ...
-│          └── ...
-│
-├── w2v_c10
-│   ├── ...
-│   └── ...
-│   
-└── word_c10 
-		├── ...
-		└── ...  
+	cvpr2016_cub
+	├── text_c10
+	│    ├── 001.Black_footed_Albatross
+	│    │     ├── Black_Footed_Albatross_0001_796111.txt
+	│    │     ├── ...
+	│    │     └── Black_Footed_Albatross_0090_796077.txt
+	│    │
+	│    ├── 002.Laysan_Albatross
+	│    .     ├── Laysan_Albatross_0001_545.txt
+	│    .     ├── ...
+	│    .     └── Laysan_Albatross_0104_630.txt
+	│    
+	│    │   
+	│    └── 200.Common_Yellowthroat
+	│          ├── ...
+	│          └── ...
+	│
+	├── w2v_c10
+	│   ├── ...
+	│   └── ...
+	│   
+	└── word_c10 
+	    ├── ...
+	    └── ...  
 	```
 
 	Note: We used the text description under `text_c10` folder as inputs for the stable diffusion model.
