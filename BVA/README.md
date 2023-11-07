@@ -4,6 +4,10 @@ We synthesize the complex bilingual voice assistant use case to demonstrate the 
 
 BVF consists of 4 components, including automatic speech recognition (ASR), QABot, neural machine translation (NMT), and text-to-speech (TTS). We leverage [Whisper](https://github.com/openai/whisper/tree/main) for ASR tasks, [FastChat](https://github.com/lm-sys/FastChat/tree/main) for QABot tasks, [M2M100 1.2B](https://huggingface.co/facebook/m2m100_1.2B) and [opus-mt-en-zh](https://huggingface.co/Helsinki-NLP/opus-mt-en-zh) for NMT tasks, and [TTS](https://github.com/coqui-ai/TTS) library for text-to-speech generation task. 
 
+Below is the workflow of BVA application:
+
+![Bilingual Voice Assistant Workflow](Assets/VoiceAssistantWorkflow.pdf)
+
 ## Installation instructions
 1. Clone the source code.
 
