@@ -57,6 +57,7 @@
 	```
 	conda install matplotlib pandas tqdm
 	pip install opencv-python visdom tb-nightly scikit-image tikzplotlib gdown
+	pip install Ninja
 	```
 	6.3 Install the coco and lvis toolkits.
 	
@@ -192,6 +193,13 @@ Note 2: We skip training related steps in this demo. Please find the original st
 	# Edit PATH-TO-VQIMG in run_infer_vq-x86.sh
 	chmod +x ./run_infer_vq-x86.sh
 	./run_infer_vq-x86.sh
+	```
+
+	(3) Parse the results
+
+	```
+	./run_infer_vq-x86.sh > vqimg_output.txt
+	python vqimg_parser.py --file vqimg_output.txt
 	```
 
 ## Hardware/software specifications

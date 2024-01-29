@@ -166,6 +166,7 @@ from torchvision.models.resnet import ResNet50_Weights
 
 org_resnet = torch.utils.model_zoo.load_url(ResNet50_Weights.IMAGENET1K_V2)
 ```
+or refer to this [threads](https://github.com/clovaai/CRAFT-pytorch/issues/191).
 
 ##### Issue 8
 ```
@@ -175,6 +176,12 @@ RuntimeError: Error building extension '_prroi_pooling'
 ```
 ##### Solution
 Comment out `#include <THC/THC.h>` in `pytracking/ltr/external/PreciseRoIPooling/pytorch/prroi_pool/src/prroi_pooling_gpu.c:17:10`. Then, replace `THCudaCheck` in `prroi_pooling_gpu.c` with `AT_CUDA_CHECK`.
+
+##### Issue 9
+```
+No module named 'ltr.external.PreciseRoIPooling.pytorch'
+```
+Go into `pytracking` directory. E.g., `<PAMLB>/VQImg/dependencies/pytracking`. Run `git submodule update --init`. Ref: [issue](https://github.com/visionml/pytracking/issues/163)
 
 ### Additional Resources
 - [Installing PyTorch for Jetson Platform](https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html)
